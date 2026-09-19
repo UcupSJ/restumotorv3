@@ -131,7 +131,7 @@
                             </a>
                         </div>
                     </div>
-                    <!-- Stats Badge / Hero Image Mockup -->
+                    <!-- Stats Badge -->
                     <div class="relative flex justify-center">
                         <div class="w-full max-w-md bg-slate-800/80 border border-slate-700/60 p-6 rounded-3xl shadow-2xl backdrop-blur-sm">
                             <div class="grid grid-cols-2 gap-4">
@@ -169,12 +169,10 @@
                 <!-- Search & Filter Controls -->
                 <div class="bg-white p-4 sm:p-6 rounded-2xl shadow-sm border border-slate-200 mb-8">
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-                        <!-- Search Box -->
                         <div class="relative sm:col-span-2 md:col-span-1">
                             <i class="fa-solid fa-search absolute left-3.5 top-3.5 text-slate-400"></i>
                             <input type="text" id="search-input" oninput="applyFilters()" placeholder="Cari nama motor / merk..." class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
                         </div>
-                        <!-- Category Filter -->
                         <div>
                             <select id="category-filter" onchange="applyFilters()" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 text-slate-700">
                                 <option value="Semua">Semua Kategori</option>
@@ -184,7 +182,6 @@
                                 <option value="Trail/Naked">Trail / Naked</option>
                             </select>
                         </div>
-                        <!-- Status Filter -->
                         <div>
                             <select id="status-filter" onchange="applyFilters()" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 text-slate-700">
                                 <option value="Semua">Semua Status</option>
@@ -193,7 +190,6 @@
                                 <option value="Terjual">Terjual</option>
                             </select>
                         </div>
-                        <!-- Sort Filter -->
                         <div>
                             <select id="sort-filter" onchange="applyFilters()" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 text-slate-700">
                                 <option value="default">Urutkan: Terbaru</option>
@@ -280,7 +276,6 @@
                 </div>
 
                 <div class="grid lg:grid-cols-3 gap-8">
-                    <!-- Contact Info Cards -->
                     <div class="space-y-4">
                         <div class="bg-white p-6 rounded-2xl border border-slate-200 flex items-start space-x-4 shadow-sm">
                             <div class="p-3 bg-brand-50 rounded-xl text-brand-600">
@@ -313,7 +308,6 @@
                         </div>
                     </div>
 
-                    <!-- Contact Form -->
                     <div class="lg:col-span-2 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm">
                         <h3 class="text-xl font-bold text-slate-800 mb-4">Kirim Pesan atau Pertanyaan</h3>
                         <form id="contact-form" onsubmit="submitContactForm(event)" class="space-y-4">
@@ -446,7 +440,7 @@
         </div>
     </div>
 
-    <!-- ADMIN DASHBOARD PANEL (FULL OVERLAY MODAL) -->
+    <!-- ADMIN DASHBOARD PANEL -->
     <div id="admin-panel" class="fixed inset-0 bg-slate-100 z-50 hidden overflow-y-auto">
         <header class="bg-slate-900 text-white sticky top-0 z-10 shadow-md">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
@@ -465,8 +459,6 @@
         </header>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
-            
-            <!-- Dashboard Stats Summary -->
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
                 <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
                     <div>
@@ -497,7 +489,6 @@
                 </div>
             </div>
 
-            <!-- Management Tabs & Action -->
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <h2 class="text-2xl font-bold text-slate-800">Kelola Katalog Motor</h2>
                 <button onclick="openMotorFormModal()" class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl text-sm shadow-md transition flex items-center justify-center space-x-2">
@@ -506,7 +497,6 @@
                 </button>
             </div>
 
-            <!-- Table Motor -->
             <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
                 <div class="overflow-x-auto">
                     <table class="w-full text-left border-collapse">
@@ -522,13 +512,11 @@
                             </tr>
                         </thead>
                         <tbody id="admin-motor-table" class="divide-y divide-slate-100 text-sm">
-                            <!-- Render Admin Table Rows -->
                         </tbody>
                     </table>
                 </div>
             </div>
 
-            <!-- Pesan / Leads Section -->
             <div class="space-y-4 pt-4">
                 <h2 class="text-xl font-bold text-slate-800">Pesan & Pertanyaan Masuk</h2>
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
@@ -544,13 +532,11 @@
                                 </tr>
                             </thead>
                             <tbody id="admin-messages-table" class="divide-y divide-slate-100 text-sm">
-                                <!-- Render Messages -->
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -619,9 +605,8 @@
                         </select>
                     </div>
 
-                    <!-- INPUT UNGGAH GAMPANG DENGAN KOMPRESI SCRIPT -->
                     <div>
-                        <label class="block text-xs font-semibold text-slate-600 mb-1">Upload Foto Motor (Otomatis Kompres)</label>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">Upload Foto Motor (Kompres Otomatis)</label>
                         <input type="file" id="motor-file-input" accept="image/*" onchange="handleImageCompress(event)" class="w-full text-xs text-slate-500 file:mr-2 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-brand-50 file:text-brand-700 hover:file:bg-brand-100">
                     </div>
                 </div>
@@ -631,7 +616,6 @@
                     <input type="url" id="motor-image-input" placeholder="https://images.unsplash.com/..." class="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-brand-500" oninput="document.getElementById('image-preview').src = this.value">
                 </div>
 
-                <!-- PREVIEW GAMBAR SEBELUM DISIMPAN -->
                 <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 flex items-center space-x-4">
                     <img id="image-preview" src="https://placehold.co/600x400/e2e8f0/64748b?text=Preview+Gambar" class="w-20 h-16 object-cover rounded-lg border border-slate-300">
                     <div>
@@ -653,13 +637,11 @@
         </div>
     </div>
 
-    <!-- FIREBASE SDK & JAVASCRIPT LOGIC -->
+    <!-- FIREBASE SDK & FIXED JAVASCRIPT LOGIC -->
     <script type="module">
-        // Import Firebase App dan Realtime Database SDK
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getDatabase, ref, set, onValue, push, remove } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
-        // Konfigurasi Firebase dari database.html[cite: 1]
         const firebaseConfig = {
             apiKey: "AIzaSyB7I0FziARY2a3XlOX_o3l2qhjEvRmM7wI",
             authDomain: "restu-motor-db.firebaseapp.com",
@@ -670,14 +652,11 @@
             appId: "1:561959840654:web:b4c4b3cc17b62f46d512df"
         };
 
-        // Inisialisasi Firebase
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
 
-        // DEFAULT INITIAL DATA (untuk inisialisasi awal jika database kosong)[cite: 2]
         const DEFAULT_MOTORS = [
             {
-                id: "1",
                 name: "Honda Vario 160 CBS",
                 brand: "Honda",
                 category: "Matic",
@@ -689,7 +668,6 @@
                 specs: "Kondisi mulus 98%, KM 5.400, Pajak Panjang, Surat lengkap (BPKB, STNK, Faktur)."
             },
             {
-                id: "2",
                 name: "Yamaha All New NMAX 155",
                 brand: "Yamaha",
                 category: "Matic",
@@ -701,7 +679,6 @@
                 specs: "Warna Hitam Doff, Mesin terawat rutin bengkel resmi, Kunci Keyless, Bebas banjir & nabrak."
             },
             {
-                id: "3",
                 name: "Kawasaki Ninja 250 FI",
                 brand: "Kawasaki",
                 category: "Sport",
@@ -711,52 +688,32 @@
                 status: "Tersedia",
                 image: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=800&q=80",
                 specs: "Knalpot R9 racing (ori ada), Mesin halus, Body mulus terawat, Surat-surat garansi keabsahan."
-            },
-            {
-                id: "4",
-                name: "Honda Supra X 125 FI",
-                brand: "Honda",
-                category: "Bebek",
-                price: 13500000,
-                year: 2021,
-                cc: 125,
-                status: "Terjual",
-                image: "https://images.unsplash.com/photo-1558981359-219d6364c9c8?auto=format&fit=crop&w=800&q=80",
-                specs: "Irit bensin, cocok operasional harian, Ban tebal, Servis rutin."
             }
         ];
 
-        // STATE APP[cite: 2]
         let motors = [];
         let messages = [];
 
-        // REALTIME DATABASE LISTENERS
         const motorsRef = ref(db, 'motors');
         const messagesRef = ref(db, 'messages');
 
-        // Sync Data Motor Realtime dari Firebase
+        // REALTIME LISTENER MOTOR (FIXED BUG REFRESH)
         onValue(motorsRef, (snapshot) => {
             const data = snapshot.val();
             if (data) {
-                // Jika data berbentuk Objek (dari Firebase push), ubah ke Array
-                if (Array.isArray(data)) {
-                    motors = data.filter(Boolean);
-                } else {
-                    motors = Object.keys(data).map(key => ({
-                        ...data[key],
-                        firebaseKey: key,
-                        id: data[key].id || key
-                    }));
-                }
+                motors = Object.keys(data).map(key => ({
+                    ...data[key],
+                    firebaseKey: key,
+                    id: data[key].id || key
+                }));
             } else {
-                // Jika Firebase masih kosong, seed dengan data bawaan
-                seedDefaultData();
+                motors = [];
             }
             renderPublicCatalog();
             renderAdminDashboard();
         });
 
-        // Sync Data Pesan Realtime dari Firebase
+        // REALTIME LISTENER PESAN
         onValue(messagesRef, (snapshot) => {
             const data = snapshot.val();
             if (data) {
@@ -770,15 +727,13 @@
             renderAdminDashboard();
         });
 
-        // Seed data awal ke Firebase
-        function seedDefaultData() {
+        window.seedDefaultData = function() {
             DEFAULT_MOTORS.forEach(motor => {
-                const newMotorRef = push(motorsRef);
-                set(newMotorRef, { ...motor, id: newMotorRef.key });
+                const newRef = push(motorsRef);
+                set(newRef, { ...motor, id: newRef.key });
             });
-        }
+        };
 
-        // PUBLIC CATALOG DISPLAY LOGIC[cite: 2]
         window.renderPublicCatalog = function(filteredList = null) {
             const listToRender = filteredList || motors;
             const grid = document.getElementById('motor-grid');
@@ -830,9 +785,8 @@
                 `;
                 grid.appendChild(card);
             });
-        }
+        };
 
-        // FILTER & SEARCH LOGIC[cite: 2]
         window.applyFilters = function() {
             const searchValue = document.getElementById('search-input').value.toLowerCase();
             const categoryValue = document.getElementById('category-filter').value;
@@ -840,7 +794,7 @@
             const sortValue = document.getElementById('sort-filter').value;
 
             let filtered = motors.filter(m => {
-                const matchesSearch = m.name.toLowerCase().includes(searchValue) || m.brand.toLowerCase().includes(searchValue);
+                const matchesSearch = (m.name || '').toLowerCase().includes(searchValue) || (m.brand || '').toLowerCase().includes(searchValue);
                 const matchesCategory = categoryValue === 'Semua' || m.category === categoryValue;
                 const matchesStatus = statusValue === 'Semua' || m.status === statusValue;
                 return matchesSearch && matchesCategory && matchesStatus;
@@ -853,9 +807,8 @@
             }
 
             renderPublicCatalog(filtered);
-        }
+        };
 
-        // MODAL DETAIL LOGIC[cite: 2]
         window.openDetailModal = function(id) {
             const motor = motors.find(m => m.id === id);
             if (!motor) return;
@@ -873,25 +826,24 @@
             document.getElementById('detail-image').src = motor.image;
 
             const waMsg = encodeURIComponent(`Halo Restu Motor, saya berminat dengan unit motor:\n- Nama: ${motor.name}\n- Tahun: ${motor.year}\n- Harga: ${formatRupiah(motor.price)}\nApakah unit masih tersedia?`);
-            document.getElementById('detail-wa-btn').href = `https://wa.me/083838859651?text=${waMsg}`;
+            document.getElementById('detail-wa-btn').href = `https://wa.me/6283838859651?text=${waMsg}`;
 
             document.getElementById('detail-modal').classList.remove('hidden');
-        }
+        };
 
         window.closeDetailModal = function() {
             document.getElementById('detail-modal').classList.add('hidden');
-        }
+        };
 
-        // ADMIN LOGIN & PANEL LOGIC[cite: 2]
         window.openAdminModal = function() {
             document.getElementById('login-modal').classList.remove('hidden');
-        }
+        };
 
         window.closeAdminModal = function() {
             document.getElementById('login-modal').classList.add('hidden');
             document.getElementById('login-error').classList.add('hidden');
             document.getElementById('admin-pass').value = '';
-        }
+        };
 
         window.handleAdminLogin = function(e) {
             e.preventDefault();
@@ -902,24 +854,22 @@
             } else {
                 document.getElementById('login-error').classList.remove('hidden');
             }
-        }
+        };
 
         window.openAdminPanel = function() {
             renderAdminDashboard();
             document.getElementById('admin-panel').classList.remove('hidden');
-        }
+        };
 
         window.closeAdminPanel = function() {
             document.getElementById('admin-panel').classList.add('hidden');
-        }
+        };
 
         window.renderAdminDashboard = function() {
-            // Stats
             document.getElementById('stat-total').innerText = motors.length;
             document.getElementById('stat-available').innerText = motors.filter(m => m.status === 'Tersedia').length;
             document.getElementById('stat-messages').innerText = messages.length;
 
-            // Motor Table
             const motorTable = document.getElementById('admin-motor-table');
             motorTable.innerHTML = '';
             motors.forEach(m => {
@@ -949,7 +899,6 @@
                 motorTable.appendChild(tr);
             });
 
-            // Messages Table
             const msgTable = document.getElementById('admin-messages-table');
             msgTable.innerHTML = '';
             if (messages.length === 0) {
@@ -971,9 +920,8 @@
                     msgTable.appendChild(tr);
                 });
             }
-        }
+        };
 
-        // FORM MOTOR ADD / EDIT[cite: 2]
         window.openMotorFormModal = function(editId = null) {
             const form = document.getElementById('motor-form');
             form.reset();
@@ -1003,13 +951,13 @@
             }
 
             document.getElementById('form-motor-modal').classList.remove('hidden');
-        }
+        };
 
         window.closeMotorFormModal = function() {
             document.getElementById('form-motor-modal').classList.add('hidden');
-        }
+        };
 
-        // SIMPAN MOTOR KE FIREBASE REALTIME DATABASE
+        // SAVE MOTOR FUNCTION (STABLE REALTIME FIX)
         window.saveMotor = function(e) {
             e.preventDefault();
             const id = document.getElementById('motor-id').value;
@@ -1026,33 +974,29 @@
             };
 
             if (id) {
-                // Update unit yang sudah ada
                 const motorToEdit = motors.find(m => m.id === id);
                 const targetKey = (motorToEdit && motorToEdit.firebaseKey) ? motorToEdit.firebaseKey : id;
-                set(ref(db, 'motors/' + targetKey), { ...motorData, id: id });
+                set(ref(db, 'motors/' + targetKey), { ...motorData, id: targetKey });
             } else {
-                // Tambah unit baru dengan Push ID
                 const newMotorRef = push(motorsRef);
                 set(newMotorRef, { ...motorData, id: newMotorRef.key });
             }
 
             closeMotorFormModal();
-        }
+        };
 
         window.editMotor = function(id) {
             openMotorFormModal(id);
-        }
+        };
 
-        // HAPUS MOTOR DARI FIREBASE REALTIME DATABASE[cite: 1, 2]
         window.deleteMotor = function(id) {
-            if (confirm('Apakah Anda yakin ingin menghapus motor ini dari katalog?')) {
+            if (confirm('Apakah Anda yakin ingin menghapus motor ini?')) {
                 const motorToDelete = motors.find(m => m.id === id);
                 const targetKey = (motorToDelete && motorToDelete.firebaseKey) ? motorToDelete.firebaseKey : id;
                 remove(ref(db, 'motors/' + targetKey));
             }
-        }
+        };
 
-        // SIMPAN PESAN KE FIREBASE REALTIME DATABASE[cite: 1, 2]
         window.submitContactForm = function(e) {
             e.preventDefault();
             const name = document.getElementById('sender-name').value;
@@ -1068,24 +1012,22 @@
 
             push(messagesRef, newMsg);
 
-            alert('Pesan Anda telah berhasil dikirim! Tim Restu Motor akan segera menghubungi Anda.');
+            alert('Pesan Anda berhasil dikirim!');
             document.getElementById('contact-form').reset();
-        }
+        };
 
-        // HAPUS PESAN DARI FIREBASE REALTIME DATABASE[cite: 1, 2]
         window.deleteMessage = function(key) {
             remove(ref(db, 'messages/' + key));
-        }
+        };
 
-        // RESET DATA AWAL KE FIREBASE[cite: 1, 2]
         window.resetDefaultData = function() {
-            if (confirm('RESET DATA: Mengembalikan katalog ke data bawaan awal? Data buatan Anda di database akan diperbarui.')) {
-                set(motorsRef, null); // Clear data
-                seedDefaultData();
+            if (confirm('Ganti data saat ini dengan data bawaan?')) {
+                set(motorsRef, null);
+                window.seedDefaultData();
             }
-        }
+        };
 
-        // KOMPRESI GAMBAR AUTOMATIS VIA HTML5 CANVAS[cite: 2]
+        // CANVAS COMPRESSOR OPTIMIZED FOR FIREBASE
         window.handleImageCompress = function(event) {
             const file = event.target.files[0];
             const statusEl = document.getElementById('compress-status');
@@ -1103,8 +1045,8 @@
                 const img = new Image();
                 img.src = e.target.result;
                 img.onload = () => {
-                    const MAX_WIDTH = 800;
-                    const MAX_HEIGHT = 600;
+                    const MAX_WIDTH = 600;
+                    const MAX_HEIGHT = 450;
                     let width = img.width;
                     let height = img.height;
 
@@ -1127,21 +1069,17 @@
                     const ctx = canvas.getContext('2d');
                     ctx.drawImage(img, 0, 0, width, height);
 
-                    const compressedBase64 = canvas.toDataURL('image/jpeg', 0.7);
+                    const compressedBase64 = canvas.toDataURL('image/jpeg', 0.5);
 
                     urlInput.value = compressedBase64;
                     previewEl.src = compressedBase64;
 
-                    const originalSize = (file.size / 1024).toFixed(1);
-                    const compressedSize = (compressedBase64.length * 0.75 / 1024).toFixed(1);
-
-                    statusEl.innerText = `Berhasil! Ukuran: ${originalSize}KB -> ${compressedSize}KB`;
+                    statusEl.innerText = `Kompresi Sukses! Siap diunggah.`;
                     statusEl.className = "text-[10px] text-emerald-600 font-bold";
                 };
             };
-        }
+        };
 
-        // UTILS[cite: 2]
         function formatRupiah(number) {
             return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(number);
         }
@@ -1149,7 +1087,7 @@
         window.toggleMobileMenu = function() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
-        }
+        };
     </script>
 </body>
 </html>
