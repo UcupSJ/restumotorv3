@@ -202,7 +202,6 @@
 
                 <!-- Motor Cards Grid -->
                 <div id="motor-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    <!-- Dynamic Items render here -->
                 </div>
 
                 <!-- Empty State -->
@@ -448,9 +447,6 @@
                     <span class="font-bold text-lg text-sky-400"><i class="fa-solid fa-gauge mr-2"></i> Panel Admin Restu Motor</span>
                 </div>
                 <div class="flex items-center space-x-3">
-                    <button onclick="resetDefaultData()" class="px-3 py-1.5 text-xs font-semibold bg-amber-600 hover:bg-amber-500 rounded-lg transition" title="Mengembalikan data awal">
-                        <i class="fa-solid fa-rotate-left mr-1"></i> Reset Data
-                    </button>
                     <button onclick="closeAdminPanel()" class="px-3 py-1.5 text-xs font-semibold bg-slate-700 hover:bg-slate-600 rounded-lg transition">
                         <i class="fa-solid fa-right-from-bracket mr-1"></i> Keluar
                     </button>
@@ -655,49 +651,13 @@
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
 
-        const DEFAULT_MOTORS = [
-            {
-                name: "Honda Vario 160 CBS",
-                brand: "Honda",
-                category: "Matic",
-                price: 22500000,
-                year: 2023,
-                cc: 160,
-                status: "Tersedia",
-                image: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=800&q=80",
-                specs: "Kondisi mulus 98%, KM 5.400, Pajak Panjang, Surat lengkap (BPKB, STNK, Faktur)."
-            },
-            {
-                name: "Yamaha All New NMAX 155",
-                brand: "Yamaha",
-                category: "Matic",
-                price: 28900000,
-                year: 2022,
-                cc: 155,
-                status: "Tersedia",
-                image: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=800&q=80",
-                specs: "Warna Hitam Doff, Mesin terawat rutin bengkel resmi, Kunci Keyless, Bebas banjir & nabrak."
-            },
-            {
-                name: "Kawasaki Ninja 250 FI",
-                brand: "Kawasaki",
-                category: "Sport",
-                price: 45000000,
-                year: 2020,
-                cc: 250,
-                status: "Tersedia",
-                image: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=800&q=80",
-                specs: "Knalpot R9 racing (ori ada), Mesin halus, Body mulus terawat, Surat-surat garansi keabsahan."
-            }
-        ];
-
         let motors = [];
         let messages = [];
 
         const motorsRef = ref(db, 'motors');
         const messagesRef = ref(db, 'messages');
 
-        // REALTIME LISTENER MOTOR (FIXED BUG REFRESH)
+        // LISTENER MOTOR
         onValue(motorsRef, (snapshot) => {
             const data = snapshot.val();
             if (data) {
@@ -713,7 +673,7 @@
             renderAdminDashboard();
         });
 
-        // REALTIME LISTENER PESAN
+        // LISTENER PESAN
         onValue(messagesRef, (snapshot) => {
             const data = snapshot.val();
             if (data) {
@@ -726,13 +686,6 @@
             }
             renderAdminDashboard();
         });
-
-        window.seedDefaultData = function() {
-            DEFAULT_MOTORS.forEach(motor => {
-                const newRef = push(motorsRef);
-                set(newRef, { ...motor, id: newRef.key });
-            });
-        };
 
         window.renderPublicCatalog = function(filteredList = null) {
             const listToRender = filteredList || motors;
@@ -957,7 +910,7 @@
             document.getElementById('form-motor-modal').classList.add('hidden');
         };
 
-        // SAVE MOTOR FUNCTION (STABLE REALTIME FIX)
+        // SAVE MOTOR
         window.saveMotor = function(e) {
             e.preventDefault();
             const id = document.getElementById('motor-id').value;
@@ -1020,14 +973,7 @@
             remove(ref(db, 'messages/' + key));
         };
 
-        window.resetDefaultData = function() {
-            if (confirm('Ganti data saat ini dengan data bawaan?')) {
-                set(motorsRef, null);
-                window.seedDefaultData();
-            }
-        };
-
-        // CANVAS COMPRESSOR OPTIMIZED FOR FIREBASE
+        // KOMPRESI GAMBAR AUTOMATIS
         window.handleImageCompress = function(event) {
             const file = event.target.files[0];
             const statusEl = document.getElementById('compress-status');
